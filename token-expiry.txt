@@ -1,0 +1,51 @@
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\Sanctum;
+use Laravel\Sanctum\Tokens\Token;
+
+class LoginController extends Controller
+{
+    use HasApiTokens;
+
+    public function login(Request $request)
+    {
+        // Your login logic here
+        
+        // Get the token creation date (C)
+        $tokenCreationDate = Carbon::createFromFormat('Y-m-d H:i:s', $this->createToken($request->user())->accessToken->created_at);
+
+        // Get the expiration time (E) from the Sanctum configuration file
+        $expirationTime = config('sanctum.expiration');
+
+        // Get the current time (N)
+        $currentTime = Carbon::now();
+
+        // Calculate the token expiration time
+        $tokenExpirationTime = $tokenCreationDate->addMinutes($expirationTime);
+
+            // Check if the token has expired (C + E < N)
+            if ($tokenExpirationTime->lessThan($currentTime)) {
+                // Token is expired
+            } else {
+                // Token is valid
+            }
+
+        // Rest of your code
+    }
+}
+
+
+/**
+ Case1 - If signing first time in new device (Token will be Empty)
+        * - Send OTP 
+        * - After OTP Verifications send New Token with user details 
+ Case2 - If signing with invalid token
+        * - Send OTP 
+        * - After OTP Verifications send New Token with user details
+ Case4 - If signing with Valid token
+        * - Show all user details
+ Case3 - If token is expired 
+         * - Send OTP 
+        * - After OTP Verifications send New Token with user details
+ */

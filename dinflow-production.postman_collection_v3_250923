@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "a7c08c2f-b069-4d71-8474-4197440eab10",
+		"name": "dinflow-production",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20327473",
+		"_collection_link": "https://restless-firefly-504774.postman.co/workspace/New-Team-Workspace~81b6f4ce-fc7b-4f9f-a0db-0db5336759b6/collection/20327473-a7c08c2f-b069-4d71-8474-4197440eab10?action=share&source=collection_link&creator=20327473"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "aki",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "twentyone1001@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "default"
+						},
+						{
+							"key": "phone_number",
+							"value": "7000299208",
+							"type": "default"
+						},
+						{
+							"key": "profile_pic",
+							"type": "file",
+							"src": "/C:/Users/Akhilesh/Pictures/Default.jpg"
+						},
+						{
+							"key": "contry_code",
+							"value": "91",
+							"type": "default"
+						},
+						{
+							"key": "device_details",
+							"value": "iphone13pro",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dineflow.in/api/v1/register",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dineflow",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "otpverification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "twentyone1201@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "otp",
+							"value": "8593",
+							"type": "default"
+						},
+						{
+							"key": "device_details",
+							"value": "apple mac book",
+							"type": "default"
+						},
+						{
+							"key": "c_password",
+							"value": "123456",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dineflow.in/api/v1/otpverification",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dineflow",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"otpverification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "twentyone1201@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "default"
+						},
+						{
+							"key": "token",
+							"value": "27154600d32ee4a723009c8f16e00796f71c5357fd0490bb0bb0c2ad3b805170",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dineflow.in/api/v1/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dineflow",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restaurant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "twentyone1@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dineflow.in/api/v1/restaurant",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dineflow",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "otpregenerate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "twentyone112@gmail.com",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dineflow.in/api/v1/otpregenerate",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dineflow",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"otpregenerate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "8|ZaKOYi3yLgqmiONtNXGFpAKfRwoleNDikT0yEgGG",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
